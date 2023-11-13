@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "BigCommerce API Translate from API to UI",
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+		},
+		"editor.wordWrap": "on"
+	}
+}
