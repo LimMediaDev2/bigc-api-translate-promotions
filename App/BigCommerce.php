@@ -40,6 +40,50 @@ class BigCommerce extends Controller {
     }
 
     /**
+     * Get Product Modifiers
+     * Get all product modifiers from BigCommerce
+     * 
+     * @return array
+     */
+    public function getProductModifiers($product_id, $page = 1, $limit = 250): array
+    {
+        $getAllProducts = $this->curl(
+            $this->api_url . $this->store_hash . '/v3/catalog/products/' . $product_id . '/modifiers?page=' . $page . '&limit=' . $limit,
+            'GET',
+            [
+                'Accept' => 'application/json',
+                'Accept-Encoding' => 'gzip, deflate, br',
+                'Content-Type' => 'application/json',
+                'X-Auth-Token' => $this->x_auth_token
+            ]
+        );
+
+        return $getAllProducts;
+    }
+
+    /**
+     * Get Product Variants
+     * Get all product variants from BigCommerce
+     * 
+     * @return array
+     */
+    public function getProductVariants($product_id, $page = 1, $limit = 250): array
+    {
+        $getAllProducts = $this->curl(
+            $this->api_url . $this->store_hash . '/v3/catalog/products/' . $product_id . '/variants?page=' . $page . '&limit=' . $limit,
+            'GET',
+            [
+                'Accept' => 'application/json',
+                'Accept-Encoding' => 'gzip, deflate, br',
+                'Content-Type' => 'application/json',
+                'X-Auth-Token' => $this->x_auth_token
+            ]
+        );
+
+        return $getAllProducts;
+    }
+
+    /**
      * Get Promotions
      * Get all promotions from BigCommerce
      * 
